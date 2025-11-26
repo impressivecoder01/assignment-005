@@ -22,20 +22,24 @@ heartHeartCount('nine')
 // 
 // 
 // 
-
-    document.getElementById('num-one').addEventListener('click',function(){
+    function callAndCoin(id, id2, id3){
+        document.getElementById(id).addEventListener('click',function(){
     const headerCoin =parseInt(document.getElementById('header-coin').innerText) ;
     const twenty= 20
     const nowHeaderCoin = headerCoin - twenty
-    const firstHeader = document.getElementById('first-div-header').innerText;
-    const firstDivNumber = document.getElementById('first-div-number').innerText;
+    const firstHeader = document.getElementById(id2).innerText;
+    const firstDivNumber = document.getElementById(id3).innerText;
     console.log(firstHeader,firstDivNumber)
-     if(headerCoin>20){
-        alert(`Calling ${firstHeader} service ${firstDivNumber}.....`)
-        document.getElementById('header-coin').innerText = nowHeaderCoin
-    }
-    else{
-        alert('You need more than 20 coins to call.')
-    }
+    return headerCoin > 20 ? (alert(`Calling ${firstHeader} service ${firstDivNumber}.....`),
+    (document.getElementById('header-coin').innerText = nowHeaderCoin)) : alert('You need more than 20 coins to call')     
+    //  if(headerCoin>20){
+    //     alert(`Calling ${firstHeader} service ${firstDivNumber}.....`)
+    //     document.getElementById('header-coin').innerText = nowHeaderCoin
+    // }
+    // else{
+    //     alert('You need more than 20 coins to call.')
+    // }
 })
+    }
+ callAndCoin('num-one','first-div-header','first-div-number')   
 
