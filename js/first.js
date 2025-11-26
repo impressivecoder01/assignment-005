@@ -42,4 +42,12 @@ heartHeartCount('nine')
 })
     }
  callAndCoin('num-one','first-div-header','first-div-number')   
+ callAndCoin('num-two','second-div-header','second-div-number')   
+ callAndCoin('num-three','third-div-header','third-div-number')   
+ callAndCoin('num-four','forth-div-header','forth-div-number')   
+ callAndCoin('num-five','fifth-div-header','fifth-div-number')   
+ callAndCoin('num-six','sixth-div-header','sixth-div-number')   
+ callAndCoin('num-seven','seventh-div-header','seventh-div-number')   
+ callAndCoin('num-eight','eight-div-header','eight-div-number')   
+ callAndCoin('num-nine','ninth-div-header','ninth-div-number')   
 
