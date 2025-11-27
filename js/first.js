@@ -60,6 +60,14 @@ function copyNumber(id,id2){
     })
 }
 copyNumber('first-copy','first-div-number')
+copyNumber('second-copy','second-div-number')
+copyNumber('third-copy','third-div-number')
+copyNumber('forth-copy','forth-div-number')
+copyNumber('fifth-copy','fifth-div-number')
+copyNumber('sixth-copy','sixth-div-number')
+copyNumber('seventh-copy','seventh-div-number')
+copyNumber('eight-copy','eight-div-number')
+copyNumber('ninth-copy','ninth-div-number')
 // document.getElementById('first-copy').addEventListener('click', function(){
 //     const num =parseInt(document.getElementById('first-div-number').innerText) ;
 //     navigator.clipboard.writeText(num)
