@@ -1,8 +1,6 @@
-// console.log('added')
+
 function heartHeartCount(id){
     document.getElementById(id).addEventListener('click', function(){
-    // const heart = document.getElementsByClassName('div-heart')
-    // console.log(heart)
     const count = 1;
     const headerHeartNumber =parseInt(document.getElementById('header-heart').innerText) ;
     const add = count + headerHeartNumber;
@@ -31,14 +29,7 @@ heartHeartCount('nine')
     const firstDivNumber = document.getElementById(id3).innerText;
     console.log(firstHeader,firstDivNumber)
     return headerCoin > 20 ? (alert(`Calling ${firstHeader} service ${firstDivNumber}.....`),
-    (document.getElementById('header-coin').innerText = nowHeaderCoin)) : alert('You need more than 20 coins to call')     
-    //  if(headerCoin>20){
-    //     alert(`Calling ${firstHeader} service ${firstDivNumber}.....`)
-    //     document.getElementById('header-coin').innerText = nowHeaderCoin
-    // }
-    // else{
-    //     alert('You need more than 20 coins to call.')
-    // }
+    (document.getElementById('header-coin').innerText = nowHeaderCoin)) : alert('You need more than 20 coins to call')
 })
     }
  callAndCoin('num-one','first-div-header','first-div-number')   
@@ -50,4 +41,11 @@ heartHeartCount('nine')
  callAndCoin('num-seven','seventh-div-header','seventh-div-number')   
  callAndCoin('num-eight','eight-div-header','eight-div-number')   
  callAndCoin('num-nine','ninth-div-header','ninth-div-number')   
-
+// 
+// 
+// 
+// copy number function
+document.getElementById('first-copy').addEventListener('click', function(){
+    const num =parseInt(document.getElementById('first-div-number').innerText) ;
+    navigator.clipboard.writeText(num)
+})
