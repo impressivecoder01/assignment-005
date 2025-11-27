@@ -1,0 +1,1 @@
+getElementById → returns one element by ID. getElementsByClassName → returns a live list of elements with that class.querySelector → returns first match using CSS selector.querySelectorAll → returns a static list of all matches.
