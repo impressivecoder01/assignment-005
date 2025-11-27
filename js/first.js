@@ -1,3 +1,5 @@
+// history data
+const callHistoryData = [];
 
 function heartHeartCount(id){
     document.getElementById(id).addEventListener('click', function(){
@@ -19,7 +21,7 @@ heartHeartCount('eight')
 heartHeartCount('nine')
 // 
 // 
-// 
+// call function
     function callAndCoin(id, id2, id3){
         document.getElementById(id).addEventListener('click',function(){
     const headerCoin =parseInt(document.getElementById('header-coin').innerText) ;
@@ -27,9 +29,43 @@ heartHeartCount('nine')
     const nowHeaderCoin = headerCoin - twenty
     const firstHeader = document.getElementById(id2).innerText;
     const firstDivNumber = document.getElementById(id3).innerText;
-    console.log(firstHeader,firstDivNumber)
+    // console.log(firstHeader,firstDivNumber)
+    // testing
+    const data = {
+        name: firstHeader,
+        phoneNumber:firstDivNumber,
+        date: new Date().toLocaleDateString()
+    }
+    callHistoryData.push(data)
+    // console.log(callHistoryData)
+    const historyContainer = document.getElementById('adding-history')
+    historyContainer.innerText=''
+
+    if(headerCoin > 20){
+        for(const data of callHistoryData){
+        console.log(data.name)
+        const div = document.createElement('div')
+        div.innerHTML = `
+        <div class="flex items-center justify-between mt-6 bg-[#fafafa] p-4 rounded-lg">
+                    <div>
+                        <p class="font-semibold"> ${data.name}</p>
+                        <p class="text-[#5c5c5c]"> ${data.phoneNumber}</p>
+                    </div>
+                    <div>
+                        <p class='text-[#111111]'> ${data.date}</p>
+                    </div>
+                 </div>
+        `
+        historyContainer.appendChild(div)
+    }
+    }
+
+    
+    
+
     return headerCoin > 20 ? (alert(`Calling ${firstHeader} service ${firstDivNumber}.....`),
     (document.getElementById('header-coin').innerText = nowHeaderCoin)) : alert('You need more than 20 coins to call')
+
 })
     }
  callAndCoin('num-one','first-div-header','first-div-number')   
@@ -68,13 +104,12 @@ copyNumber('sixth-copy','sixth-div-number')
 copyNumber('seventh-copy','seventh-div-number')
 copyNumber('eight-copy','eight-div-number')
 copyNumber('ninth-copy','ninth-div-number')
-// document.getElementById('first-copy').addEventListener('click', function(){
-//     const num =parseInt(document.getElementById('first-div-number').innerText) ;
-//     navigator.clipboard.writeText(num)
-//     const a = 1;
-//     const headerCopyCount =parseInt(document.getElementById('header-copy-number').innerText);
-//     const nowHeaderCopyCount = a + headerCopyCount;
-//     document.getElementById('header-copy-number').innerText = nowHeaderCopyCount;
-//     const showNumber = document.getElementById('first-div-number').innerText;
-//     alert(`This number has been copied: ${showNumber}`)
-// })
+
+
+// clear data
+document.getElementById('clear').addEventListener('click', function(){
+        // historyContainer.innerHTML = ''
+        document.getElementById('adding-history').innerHTML = ''
+    })
+
+
