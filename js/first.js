@@ -45,7 +45,28 @@ heartHeartCount('nine')
 // 
 // 
 // copy number function
-document.getElementById('first-copy').addEventListener('click', function(){
-    const num =parseInt(document.getElementById('first-div-number').innerText) ;
-    navigator.clipboard.writeText(num)
-})
+// reuseable copy function
+function copyNumber(id,id2){
+
+    return document.getElementById(id).addEventListener('click', function(){
+        const num =parseInt(document.getElementById(id2).innerText);
+        navigator.clipboard.writeText(num);
+        const a = 1;
+        const headerCopyCount =parseInt(document.getElementById('header-copy-number').innerText);
+        const nowHeaderCopyCount = a + headerCopyCount;
+        document.getElementById('header-copy-number').innerText = nowHeaderCopyCount;
+        const showNumber = document.getElementById(id2).innerText;
+        alert(`This number has been copied: ${showNumber}`)
+    })
+}
+copyNumber('first-copy','first-div-number')
+// document.getElementById('first-copy').addEventListener('click', function(){
+//     const num =parseInt(document.getElementById('first-div-number').innerText) ;
+//     navigator.clipboard.writeText(num)
+//     const a = 1;
+//     const headerCopyCount =parseInt(document.getElementById('header-copy-number').innerText);
+//     const nowHeaderCopyCount = a + headerCopyCount;
+//     document.getElementById('header-copy-number').innerText = nowHeaderCopyCount;
+//     const showNumber = document.getElementById('first-div-number').innerText;
+//     alert(`This number has been copied: ${showNumber}`)
+// })
