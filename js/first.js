@@ -34,7 +34,7 @@ heartHeartCount('nine')
     const data = {
         name: firstHeader,
         phoneNumber:firstDivNumber,
-        date: new Date().toLocaleDateString()
+        date: new Date().toLocaleTimeString()
     }
     callHistoryData.push(data)
     // console.log(callHistoryData)
