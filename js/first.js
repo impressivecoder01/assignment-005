@@ -60,9 +60,6 @@ heartHeartCount('nine')
     }
     }
 
-    
-    
-
     return headerCoin > 20 ? (alert(`Calling ${firstHeader} service ${firstDivNumber}.....`),
     (document.getElementById('header-coin').innerText = nowHeaderCoin)) : alert('You need more than 20 coins to call')
 
