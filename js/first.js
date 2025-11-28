@@ -1,4 +1,4 @@
-// history data
+/// history data
 const callHistoryData = [];
 
 function heartHeartCount(id){
@@ -23,48 +23,55 @@ heartHeartCount('nine')
 // 
 // call function
     function callAndCoin(id, id2, id3){
-        document.getElementById(id).addEventListener('click',function(){
-    const headerCoin =parseInt(document.getElementById('header-coin').innerText) ;
-    const twenty= 20
-    const nowHeaderCoin = headerCoin - twenty
-    const firstHeader = document.getElementById(id2).innerText;
-    const firstDivNumber = document.getElementById(id3).innerText;
-    // console.log(firstHeader,firstDivNumber)
-    // testing
-    const data = {
-        name: firstHeader,
-        phoneNumber:firstDivNumber,
-        date: new Date().toLocaleTimeString()
-    }
-    callHistoryData.push(data)
-    // console.log(callHistoryData)
-    const historyContainer = document.getElementById('adding-history')
-    historyContainer.innerText=''
+    document.getElementById(id).addEventListener('click',function(){
 
-    if(headerCoin > 20){
-        for(const data of callHistoryData){
-        console.log(data.name)
-        const div = document.createElement('div')
-        div.innerHTML = `
-        <div class="flex items-center justify-between mt-6 bg-[#fafafa] p-4 rounded-lg">
+        const headerCoin = parseInt(document.getElementById('header-coin').innerText);
+        const cost = 20;
+        const nowHeaderCoin = headerCoin - cost;
+
+        const firstHeader = document.getElementById(id2).innerText;
+        const firstDivNumber = document.getElementById(id3).innerText;
+
+        // history data (keeps old history)
+        const data = {
+            name: firstHeader,
+            phoneNumber: firstDivNumber,
+            date: new Date().toLocaleTimeString()
+        }
+        callHistoryData.push(data);
+
+        const historyContainer = document.getElementById('adding-history');
+        
+        if (headerCoin >= 20) {
+
+            // Always re-render ALL history but don't clear stored data
+            historyContainer.innerHTML = '';
+            for(const item of callHistoryData){
+                const div = document.createElement('div');
+                div.innerHTML = `
+                <div class="flex items-center justify-between mt-6 bg-[#fafafa] p-4 rounded-lg">
                     <div>
-                        <p class="font-semibold"> ${data.name}</p>
-                        <p class="text-[#5c5c5c]"> ${data.phoneNumber}</p>
+                        <p class="font-semibold">${item.name}</p>
+                        <p class="text-[#5c5c5c]">${item.phoneNumber}</p>
                     </div>
                     <div>
-                        <p class='text-[#111111]'> ${data.date}</p>
+                        <p class='text-[#111111]'>${item.date}</p>
                     </div>
-                 </div>
-        `
-        historyContainer.appendChild(div)
-    }
-    }
+                </div>
+                `;
+                historyContainer.appendChild(div);
+            }
 
-    return headerCoin > 20 ? (alert(`Calling ${firstHeader} service ${firstDivNumber}.....`),
-    (document.getElementById('header-coin').innerText = nowHeaderCoin)) : alert('You need more than 20 coins to call')
+            alert(`Calling ${firstHeader} service ${firstDivNumber}.....`);
+            document.getElementById('header-coin').innerText = nowHeaderCoin;
+        } 
+        
+        else {
+            alert('You need at least 20 coins to call');
+        }
+    })
+}
 
-})
-    }
  callAndCoin('num-one','first-div-header','first-div-number')   
  callAndCoin('num-two','second-div-header','second-div-number')   
  callAndCoin('num-three','third-div-header','third-div-number')   
@@ -108,5 +115,3 @@ document.getElementById('clear').addEventListener('click', function(){
         // historyContainer.innerHTML = ''
         document.getElementById('adding-history').innerHTML = ''
     })
-
-
